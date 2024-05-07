@@ -50,23 +50,74 @@ class ProductManager(BaseAgent):
         """
 
 
-    def write_user_story(self, context: str): 
+    def write_user_story(self, context: str):
+        """
+        Write the best user story based on the given context.
 
-        task = """Given the above CONTEXT, your task is to write the best user story."""
+        Args:
+            context (str): The context for writing the user story.
+
+        Returns:
+            str: The detailed user story including acceptance criteria.
+        """
+
+        # Define the task and question for the user story
+        task = """Considering your competencies and utilizing your capabilities, given the above CONTEXT, your task is to write the best user story."""
         question = """Write the detailed user story including its acceptance criteria in the following format:
         Background: [one sentence]
-        Scenario: [the udrt story]
+        Scenario: [the user story]
         Acceptance Criteria: [bullet points]"""
 
+        # Call the openai_answer function to generate the user story
         response = openai_answer(role=self.role,
-                                 competencies=self.competencies,
-                                 capabilities=self.capabilities,
-                                 task=task,
-                                 question=question,
-                                 context=context,
-                                 lang=self.lang,
-                                 tone=self.tone,
-                                 extra_instructions=self.extra_instructions,
-                                 openai_api_key=self.openai_api_key,
-                                 model=self.model)
+                                competencies=self.competencies,
+                                capabilities=self.capabilities,
+                                task=task,
+                                question=question,
+                                context=context,
+                                lang=self.lang,
+                                tone=self.tone,
+                                extra_instructions=self.extra_instructions,
+                                openai_api_key=self.openai_api_key,
+                                model=self.model)
+        return response
+    
+    def write_release_notes(self, context: str):
+        """
+        Write the release notes based on the given context.
+
+        Args:
+            context (str): The context for writing the release notes.
+
+        Returns:
+            str: The detailed release notes.
+        """
+
+        # Define the task and question for the release notes
+        task = """Considering your competencies and utilizing your capabilities, given the above CONTEXT, your task is to write the release notes."""
+        question = """Write the detailed release notes including its acceptance criteria in the following format:
+        Overview
+        [brief overview in less than 5 sentences]
+        
+        New Features 
+        [review of the new features in bullet points]
+        
+        Features Enhancements
+        [review of the enhancements in bullet points]
+        
+        Fixed Issues
+        [review of the bug fixes and fixed issues in bullet points]"""
+
+        # Call the openai_answer function to generate the user story
+        response = openai_answer(role=self.role,
+                                competencies=self.competencies,
+                                capabilities=self.capabilities,
+                                task=task,
+                                question=question,
+                                context=context,
+                                lang=self.lang,
+                                tone=self.tone,
+                                extra_instructions=self.extra_instructions,
+                                openai_api_key=self.openai_api_key,
+                                model=self.model)
         return response
