@@ -1,5 +1,5 @@
-from utils import *
-from Agent import Agent as BaseAgent
+from ..utils import *
+from ..Agent import Agent as BaseAgent
 
 class ContentCreator(BaseAgent):
 
@@ -45,6 +45,8 @@ class ContentCreator(BaseAgent):
 
         """
 
+    def general_answer(self, question: str, context: str=None):
+        return super().general_answer(question=question, context=context)
 
     def write_linkedin_post(self, context: str): 
 

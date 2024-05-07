@@ -1,5 +1,5 @@
-from utils import *
-from Agent import Agent as BaseAgent
+from ..utils import *
+from ..Agent import Agent as BaseAgent
 
 class ProductManager(BaseAgent):
 
@@ -48,6 +48,9 @@ class ProductManager(BaseAgent):
         -Working closely with the Technical team to execute and deliver roadmap milestones.
         -Understand, communicate and drive optimization of all leading metrics and KPIs 
         """
+
+    def general_answer(self, question: str, context: str=None):
+        return super().general_answer(question=question, context=context)
 
 
     def write_user_story(self, context: str):

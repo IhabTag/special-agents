@@ -78,7 +78,7 @@ We welcome contributions from the community. Here are some ways you can contribu
 -   Suggesting enhancements
 -   Pull requests
 
-Please read [CONTRIBUTING.md](https://github.com/IhabTag/special-agents/blob/master/README.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/IhabTag/special-agents/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 

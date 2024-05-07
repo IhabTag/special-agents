@@ -1,5 +1,5 @@
 from openai import OpenAI
-from config import *
+from .config import *
 
 def openai_answer(role, 
                   competencies, 

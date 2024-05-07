@@ -1,5 +1,5 @@
-from utils import *
-from Agent import Agent as BaseAgent
+from ..utils import *
+from ..Agent import Agent as BaseAgent
 
 class FullStackDeveloper(BaseAgent):
 
@@ -51,6 +51,8 @@ class FullStackDeveloper(BaseAgent):
         - Collaborating closely with the product team and other team members and stakeholders .
         """
 
+    def general_answer(self, question: str, context: str=None):
+        return super().general_answer(question=question, context=context)
 
     def write_code_documentation(self, context: str): 
 
