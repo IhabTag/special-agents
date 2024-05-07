@@ -72,7 +72,6 @@ def openai_answer(role,
                 CONTEXT: {context}.
                 TASK: {task}.
                 INSTRUCTIONS:
-                - Answer in the {lang} language.
                 - Make your answer in a {tone} tone.
                 {extra_instructions}"""
         else:
@@ -82,9 +81,9 @@ def openai_answer(role,
                 Your capabilities are: {capabilities}. 
                 TASK: {task}
                 INSTRUCTIONS:
-                - Answer in the {lang} language.
                 - Make your answer in a {tone} tone.
                 {extra_instructions}"""
+        
         
         response = client.chat.completions.create(
             model = model,
@@ -94,6 +93,18 @@ def openai_answer(role,
                 {"role": "user", "content": question}
             ]
         )
-        return response.choices[0].message.content
+        if lang == 'same':
+            return response.choices[0].message.content
+        else:
+            translated_response = client.chat.completions.create(
+            model = model,
+            temperature = temperature,
+            messages = [
+                {"role": "system", "content": f'You are a translator, translate the following into the {lang} language'},
+                {"role": "user", "content": response.choices[0].message.content}
+            ]
+            )
+            return translated_response.choices[0].message.content
+            
     except Exception as err:
         return(f"Unexpected {err=}, {type(err)=}")
