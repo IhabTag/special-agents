@@ -1,1 +1,1 @@
-from .product_manager import *
+from .agents import *

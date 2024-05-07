@@ -9,7 +9,7 @@ req = [x.strip() for x in req if x.strip()]
 
 setup(
     name="special-agents", 
-    version="0.0.4",
+    version="0.0.5",
     author="Ihab Tag",
     author_email="contact@ihabtag.com",
     description="An Open-source Library for pre-defined LLM powered specialized agents",
