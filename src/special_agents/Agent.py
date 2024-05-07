@@ -8,7 +8,7 @@ class Agent:
                  competencies='', 
                  capabilities= '',
                  tone= '',
-                 lang= '',
+                 lang= 'same',
                  extra_instructions= '',
                  openai_api_key: str=AGENTS_OPENAI_API_KEY, 
                  model: str=AGENTS_MODEL,
